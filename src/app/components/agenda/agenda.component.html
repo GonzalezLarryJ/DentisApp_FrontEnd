@@ -110,6 +110,7 @@
         <th scope="col">Telefono</th>
         <th scope="col">Consulta</th>
         <th scope="col">Cobertura</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -123,6 +124,7 @@
         <td>{{ turno.telefono }}</td>
         <td>{{ turno.razon_cons }}</td>
         <td>{{ turno.cobertura }}</td>
+        <td><button type="button" class="btn btn-secondary" [routerLink]="['/pacientes',turno.dni] " style="color:white">Detalles</button></td> 
       </tr>
       }
     </tbody>

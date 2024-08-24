@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -35,9 +36,12 @@ export class LoginComponent {
       const { email, password } = this.loginForm.value;
       this.userService.login(email, password).subscribe(
         response => {
-          console.log('Autenticación exitosa:', response);
-          // Redirigir al usuario o manejar la respuesta según el caso
-          this.router.navigate(['/home']);
+            console.log('Autenticación exitosa:', response);
+
+            localStorage.setItem('isAuthenticated', 'true');
+           
+            this.router.navigate(['/calendar']);
+
         },
         error => {
           this.mensajeError = true;
